@@ -1,6 +1,7 @@
 {
     "extends": ["stylelint-config-standard-scss"],
     "plugins": ["stylelint-order"],
+    "ignoreFiles": ["./src/scss/base/normalize.scss"],
     "rules": {
         "order/properties-order": [
             "position",
