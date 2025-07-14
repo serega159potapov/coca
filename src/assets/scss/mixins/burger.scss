@@ -1,17 +1,17 @@
 @mixin burger {
     --burger-width: 28px;
-    --burger-height: 24px;
+    --burger-height: 22px;
     --burger-line-height: 3px;
 
     position: relative;
-    z-index: 5;
+    z-index: var(--z-index-3);
     display: none;
     width: var(--burger-width);
     height: var(--burger-height);
     background-color: transparent;
-    color: #000;
+    color: var(--neutral-color-140);
 
-    @include tablet {
+    @include small-tablet {
         display: block;
     }
 
@@ -34,14 +34,14 @@
     }
 
     &::after {
-        top: calc(var(--burger-line-height));
+        top: calc(100% - var(--burger-line-height));
         transition:
             transform 0.2s,
             top 0.2s 0.2s;
         transition-duration: 0.2s;    
     }
 
-    &__line {
+    &_line {
         position: absolute;
         top: 50%;
         left: 0;
@@ -49,13 +49,14 @@
         height: var(--burger-line-height);
         background-color: currentcolor;
         transform: translateY(-50%);
+        transition: transform;
         transition-duration: 0.2s;
         transition-delay: 0.2s;
     }
 
     &::before,
     &::after,
-    &__line {
+    &_line {
         border-radius: 28px;
     }
 
@@ -77,10 +78,8 @@
         }
         
         /* stylelint-disable-next-line selector-class-pattern */
-        .burger__line {
+        .burger_line {
             transform: scale(0);
-            transition-duration: 0.1s;
-            transition-delay: 0.2s;
         }
     }
 }
