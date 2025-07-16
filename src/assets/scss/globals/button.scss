@@ -1,0 +1,19 @@
+.button {
+    &-form {       
+        border-radius: 100px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.5;
+        text-align: center;
+        transition: opacity var(--transition);
+
+        @include mobile {
+            font-style: 14px;
+        }
+        
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+}

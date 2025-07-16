@@ -12,10 +12,16 @@ html {
     box-sizing: inherit;
 }
 
-body {
+.body {
+    position: relative;
     background-color: var(--neutral-color-10);
     color: var(--neutral-color-100);
     overflow-x: hidden;
+
+
+    &--fixef {
+        overflow-y: hidden;
+    }
 }
 
 img {

@@ -69,6 +69,7 @@
         height: 27px;
         border-radius: 13px;
         background-color: var(--neutral-color-130);
+        cursor: pointer;
         transform: translateY(8px);
         transition: background-color(--transition);
 
@@ -96,6 +97,11 @@
             line-height: 1.5;
             text-align: center;
             transform: translateX(-50%);
+
+            @include small-tablet {
+                top: -28px;
+                font-size: 20px;
+            }
         }
 
         &-checkbox {
@@ -136,6 +142,7 @@
         line-height: 162%;
 
         @include small-tablet {
+            font-size: 20px;
             line-height: 200%;
         }
 
