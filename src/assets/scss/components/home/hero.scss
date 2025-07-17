@@ -7,7 +7,7 @@
     }
 
     @include mobile {
-        min-height: calc(100dvh - 128px);
+        min-height: calc(100dvh - 109px);
     }
 
     &::before {
@@ -76,8 +76,11 @@
     }
 
     &_left {
-        max-width: 599px;
+        @include mini-desktop {
+            max-width: 617px;
+        }
     }
+
 
     &_title {
         margin-bottom: 114px;
@@ -109,6 +112,12 @@
 
     &_subtitle {
         margin-bottom: 69px;
+
+        br {
+            @include mini-desktop {
+                display: none;
+            }
+        }
     }
 
     &_form {
@@ -238,9 +247,10 @@
                 line-height: 143%;
             }
         }
-
+        
         &-body {
-            &-th {
+            &-td {
+                white-space: nowrap;
                 color: #fff;
                 font-size: 20px;
                 font-weight: 700;
