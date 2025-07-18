@@ -38,7 +38,7 @@
         transition:
             transform 0.2s,
             top 0.2s 0.2s;
-        transition-duration: 0.2s;    
+        transition-duration: 0.2s;
     }
 
     &_line {
@@ -68,7 +68,7 @@
                 top 0.2s,
                 transform 0.2s 0.2s;
         }
-        
+
         &::after {
             top: 50%;
             transform: rotateZ(45deg);
@@ -76,7 +76,7 @@
                 top 0.35s,
                 transform 0.2s 0.2s;
         }
-        
+
         /* stylelint-disable-next-line selector-class-pattern */
         .burger_line {
             transform: scale(0);

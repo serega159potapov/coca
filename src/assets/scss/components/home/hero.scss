@@ -50,18 +50,17 @@
             width: 225px;
             height: 225px;
         }
-
     }
 
     &::before,
-    &::after{
+    &::after {
         content: '';
         position: absolute;
         z-index: var(--z-index-0);
         display: inline-block;
         border-radius: 50%;
     }
-    
+
     &_container {
         @include flex-justify-between;
 
@@ -80,7 +79,6 @@
             max-width: 617px;
         }
     }
-
 
     &_title {
         margin-bottom: 114px;
@@ -203,9 +201,9 @@
         top: -60px;
         right: -140px;
         display: inline-block;
-        padding:15px 18px;
+        padding: 15px 18px;
 
-        @include small-desktop{
+        @include small-desktop {
             top: -140px;
             right: -30px;
         }
@@ -247,7 +245,7 @@
                 line-height: 143%;
             }
         }
-        
+
         &-body {
             &-td {
                 white-space: nowrap;
@@ -285,12 +283,12 @@
                 }
 
                 &--green::before,
-                &--red::before{
-                    content: "";
-                        display: inline-block;
-                        width: 12px;
-                        height: 12px;
-                        margin-right: 3px;
+                &--red::before {
+                    content: '';
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    margin-right: 3px;
                 }
             }
 
@@ -302,6 +300,5 @@
                 letter-spacing: -0.04em;
             }
         }
-        
     }
 }

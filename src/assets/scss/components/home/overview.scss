@@ -30,11 +30,9 @@
         }
 
         @include small-mobile {
-            margin-bottom: 50px
+            margin-bottom: 50px;
         }
-
     }
-
 
     &_list {
         @include flex-all-between;
@@ -52,8 +50,8 @@
     &_item {
         max-width: 453px;
 
-        &-icon, 
-        &-title{
+        &-icon,
+        &-title {
             margin-bottom: 24px;
 
             @include tablet {
@@ -82,7 +80,7 @@
     }
 
     &_title,
-    &_descr, 
+    &_descr,
     &_item-title {
         @include tablet {
             margin-right: auto;
