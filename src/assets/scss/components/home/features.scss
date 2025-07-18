@@ -1,0 +1,194 @@
+.features {
+    padding: 100px 0 94px;
+
+    @include mobile {
+        padding: 60px 0 64px;
+    }
+
+    &_container {
+        @include flex-all-between;
+
+        @include mini-desktop {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        @include tablet {
+            align-items: center;
+            text-align: center;
+        }
+
+        @include mobile {
+            gap: 25px;
+        }
+    }
+
+    &_left {
+        position: relative;
+    }
+
+    &_stats {
+        position: absolute;
+        right: 36px;
+        bottom: 40px;
+        max-width: 290px;
+        padding: 18px;
+        background-color: #fff;
+
+        @include mobile {
+            right: 16px;
+            bottom: 20px;
+        }
+
+        @include small-mobile {
+            right: 12px;
+            bottom: 12px;
+            max-width: 240px;
+            padding: 14px;
+        }
+
+        &-head {
+            @include flex-all-between;
+
+            margin-bottom: 19px;
+        }
+
+        &-title {
+            color: #1d1e25;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        
+
+        &-item {
+            @include flex-align-center;
+
+            gap: 26px;
+
+            &:not(last-child) {
+                padding-bottom: 23px;
+                border: 1px solid #ededed;
+            }
+
+            &:last-child {
+                padding-top: 23px;
+            }
+
+            &-img {
+                @include small-mobile {
+                    width: 65px;
+                }
+            }
+
+            &-title {
+                margin-bottom: 6px;
+                color: #7e8492;
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1.5;
+            }
+
+            &-price {
+                @include flex-align-center;
+
+                gap: 12px;
+                margin-bottom: 9px;
+
+                &-num {
+                    color: #1d1e25;
+                    font-size: 23px;
+                    font-weight: 700;
+                    line-height: 1.2;
+
+                    @include mobile {
+                        font-size: 18px;
+                    }
+                }
+
+                &-proc {
+                    @include flex-align-center;
+
+                    gap: 5px;
+                    color: #1d1e25;
+                    font-size: 10px;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    text-align: center;
+                }
+            }
+
+            &-descr {
+                color: #7e8492;
+                font-size: 8px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &_right {
+        max-width: 557px;
+
+        @include mini-desktop {
+            max-width: 992px;
+        }
+    }
+
+    &_title {
+        margin-bottom: 24px;
+        color: var(--neutral-color-100);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+
+        @include mobile {
+            margin-bottom: 20px;
+        }
+    }
+
+    &_descr {
+        max-width: 360px;
+        margin-bottom: 40px;
+        color: #7e8492;
+        font-weight: 500;
+        line-height: 178%;
+
+        @include mini-desktop {
+            max-width: 700px;
+        }
+
+
+    }
+
+    &_item {
+        @include flex-align-center;
+
+        max-width: 393px;
+        color: var(--neutral-color-100);
+        font-weight: 500;
+        line-height: 178%;
+
+        @include mini-desktop {
+            max-width: 700px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 32px;
+
+            @include mobile {
+                margin-bottom: 22px;
+            }
+        }
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 19px;
+            padding-right: 19px;
+            background: url("../../../icons/features-tick-icon.svg");
+        }
+    }
+}
