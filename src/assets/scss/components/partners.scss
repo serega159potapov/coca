@@ -1,0 +1,59 @@
+.partners {
+    padding: 86px 0;
+
+    @include mobile {
+        padding: 66px 0;
+    }
+
+    &_container {
+        @include flex-all-between;
+
+        gap: 30px;
+
+        @include small-tablet{
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    &_title {
+        color: var(--neutral-color-150);
+        font-weight: 500;
+        line-height: 178%;
+
+        &-num {
+            display: block;
+            margin-bottom: 16px;
+            color: var(--neutral-color-100);
+            font-weight: 600;
+            letter-spacing: -0.04em;
+
+            @include small-mobile {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &_list {
+        @include flex-all-center;
+
+        flex-wrap: wrap;
+        gap: 10px 30px;
+
+        @include mobile {
+            gap: 10px
+        }
+    }
+
+    &_item {
+        @include flex-all-center;
+
+        width: 160px;
+        height: 90px;
+        border-radius: 16px;
+        background-color: #fff;
+    }
+
+
+}
