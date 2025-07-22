@@ -21,7 +21,7 @@
     &_descr {
         max-width: 660px;
         margin-bottom: 80px;
-        color: #7e8492;
+        color: var(--neutral-color-150);
         font-weight: 500;
         line-height: 1.5;
 
@@ -73,7 +73,7 @@
         }
 
         &-descr {
-            color: #7e8492;
+            color: var(--neutral-color-150);
             font-weight: 500;
             line-height: 162%;
         }
