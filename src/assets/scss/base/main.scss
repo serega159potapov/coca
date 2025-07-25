@@ -63,6 +63,10 @@ button {
     cursor: pointer;
 }
 
+label {
+    cursor: pointer;
+}
+
 .container {
     max-width: calc(var(--container-width) + var(--container-padding) * 2);
     margin: 0 auto;
