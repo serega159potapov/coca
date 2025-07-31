@@ -85,7 +85,7 @@
 
             &-title {
                 margin-bottom: 6px;
-                color: #7e8492;
+                color: var(--neutral-color-150);
                 font-size: 10px;
                 font-weight: 500;
                 line-height: 1.5;
@@ -121,7 +121,7 @@
             }
 
             &-descr {
-                color: #7e8492;
+                color: var(--neutral-color-150);
                 font-size: 8px;
                 font-weight: 400;
             }
