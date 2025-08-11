@@ -1,0 +1,219 @@
+.hero {
+    padding: 105px 0 160px;
+
+    @include tablet {
+        padding: 60px 0 80px;
+    }
+
+    @include mobile {
+        padding: 30px 0 80px;
+    }
+
+    &_title {
+        max-width: 940px;
+        margin-bottom: 100px;
+        color: var(--neutral-color-100);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+
+        @include mini-desktop {
+            margin-bottom: 60px;
+        }
+
+        @include tablet {
+            font-size: 45px;
+        }
+
+        @include mobile {
+            font-size: 40px;
+        }
+    }
+
+    &_info {
+        padding-bottom: 150px;
+
+        @include mini-desktop {
+            padding-bottom: 60px;
+        }
+
+        @include flex-all-between;
+
+        &-text {
+            max-width: 738px;
+            color: var(--neutral-color-100);
+            font-weight: 400;
+            line-height: 1.3;
+            letter-spacing: -0.03em;
+
+            &.text-p-subtitle {
+                position: relative;
+                display: block;
+                padding-left: calc(76px + 27px);
+
+                @include mini-desktop {
+                    padding-left: 0;
+                }
+            }
+
+            &.text-p-subtitle::before {
+                position: absolute;
+                top: 0.6em;
+                left: 0;
+                transform: none;
+            }
+
+            @include tablet {
+                font-size: 25px;
+            }
+
+            @include mobile {
+                font-size: 23px;
+            }
+        }
+
+        svg {
+            // Меняем цвет только для текстовых элементов и стрелки
+            path[fill='rgb(22,26,52)'],
+            rect[fill='rgb(22,26,52)'] {
+                fill: var(--neutral-color-100);
+            }
+
+            // Круг остается прозрачным
+            circle[fill='rgb(215.688,47.5068,10.2452)'] {
+                fill: transparent;
+            }
+
+            @include mini-desktop {
+                display: none;
+            }
+        }
+    }
+
+    &_slider {
+        position: relative;
+        overflow: visible !important;
+
+        @include mini-desktop {
+            overflow: hidden !important;
+            margin-right: 0;
+            padding-right: 0;
+        }
+
+        &-btns {
+            @include flex-all-center;
+
+            position: absolute;
+            top: 126px;
+            left: 40%;
+            z-index: var(--z-index-2);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #fff;
+            background-color: var(--neutral-color-10);
+            transform: translateX(-50%);
+
+            @include tablet {
+                display: none;
+            }
+
+            @include small-mobile {
+                top: 80px;
+                left: 94%;
+                display: flex;
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+
+    &_article {
+        max-width: 582px;
+        gap: 32px;
+
+        &-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        &-2 {
+            img {
+                margin-bottom: 24px;
+            }
+
+            &-title {
+                color: var(--neutral-color-100);
+                font-weight: 400;
+                line-height: 1.5;
+                letter-spacing: -0.01em;
+            }
+
+            &-text {
+                max-width: 494px;
+                margin-bottom: 32px;
+                color: var(--neutral-color-60);
+                font-weight: 500;
+                line-height: 1.7;
+            }
+
+            &-btn {
+                padding: 16px 32px;
+                background-color: var(--neutral-color-100);
+                color: var(--neutral-color-10);
+            }
+        }
+    }
+
+    &_quote {
+        margin-top: 160px;
+        padding: 80px 0;
+        border-bottom: 1px solid var(--neutral-color-30);
+        border-top: 1px solid var(--neutral-color-30);
+
+        @include flex-all-between;
+
+        @include mini-desktop {
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        @include small-tablet {
+            margin-top: 80px;
+        }
+
+        &-title {
+            max-width: 480px;
+            color: var(--neutral-color-100);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+
+            @include mini-desktop {
+                max-width: 100%;
+                font-size: 45px;
+            }
+
+            @include small-tablet {
+                text-align: center;
+            }
+        }
+
+        &-text {
+            max-width: 513px;
+            color: var(--neutral-color-100);
+            font-weight: 400;
+            line-height: 1.5;
+
+            @include mini-desktop {
+                max-width: auto;
+                font-size: 23px;
+            }
+
+            @include small-tablet {
+                text-align: center;
+            }
+        }
+    }
+}
