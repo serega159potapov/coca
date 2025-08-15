@@ -18,6 +18,7 @@ export default defineConfig({
             input: {
                 main: './src/index.html',
                 about: './src/about.html',
+                blog: './src/blog.html',
                 pricing: './src/pricing.html',
                 contact: './src/contact.html',
             },
