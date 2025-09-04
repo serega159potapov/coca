@@ -1,0 +1,179 @@
+.detail {
+    padding: 80px 0 160px;
+
+    @include small-tablet {
+        padding: 30px 0 100px;
+    }
+
+    &_info {
+        &-title {
+            max-width: 940px;
+            color: var(--neutral-color-100);
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: -0.03em;
+        }
+
+        &-author {
+            align-items: end;
+            padding: 80px 0 24px;
+
+            @include flex-justify-between;
+
+            @include small-tablet {
+                flex-direction: column;
+                align-items: start;
+                padding: 40px 0 18px;
+                gap: 50px;
+            }
+
+            &-info {
+                display: flex;
+                gap: 24px;
+
+                &-wrapper {
+                    &-name {
+                        padding-bottom: 4px;
+                        color: var(--neutral-color-100);
+                        font-weight: 600;
+                        line-height: 26px;
+                        font-style: normal;
+                    }
+
+                    &-professions {
+                        color: var(--neutral-color-150);
+                        font-weight: 500;
+                        line-height: 26px;
+                        font-style: normal;
+                    }
+                }
+            }
+
+            &-time {
+                color: var(--neutral-color-150);
+                font-weight: 500;
+                line-height: 22px;
+            }
+        }
+
+        &-img {
+            padding-bottom: 80px;
+
+            @include small-tablet {
+                padding-bottom: 40px;
+            }
+        }
+
+        &-text {
+            padding-bottom: 56px;
+            color: var(--neutral-color-100);
+            font-weight: 400;
+            line-height: 32px;
+        }
+
+        &-approach {
+            padding-bottom: 56px;
+
+            &-title {
+                padding-bottom: 24px;
+                color: var(--neutral-color-100);
+                font-weight: 600;
+                line-height: 48px;
+            }
+
+            &-text {
+                padding-bottom: 24px;
+                color: var(--neutral-color-100);
+                font-weight: 400;
+                line-height: 32px;
+
+                @include small-tablet {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        &-writer {
+            display: flex;
+            gap: 48px;
+
+            @include small-tablet {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            &-right {
+                max-width: 590px;
+
+                &-img {
+                    max-height: 200px;
+                    object-fit: contain;
+                }
+
+                &-socials {
+                    gap: 32px;
+                    display: flex;
+                    padding-bottom: 14px;
+
+                    @include flex-align-center;
+
+                    &-item {
+                        @include flex-all-center;
+
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        background: color-mix(
+                            in srgb,
+                            var(--neutral-color-90) 10%,
+                            transparent
+                        );
+                        cursor: pointer;
+
+                        svg {
+                            z-index: var(--z-index-1);
+
+                            path {
+                                fill: var(--neutral-color-140);
+                            }
+                        }
+                    }
+
+                    &-share {
+                        color: var(--neutral-color-100);
+                        font-weight: 500;
+                        line-height: 26px;
+                    }
+                }
+
+                &-Written {
+                    padding-bottom: 16px;
+                    color: var(--neutral-color-150);
+                    font-weight: 400;
+                    line-height: 24px;
+                }
+
+                &-name {
+                    padding-bottom: 16px;
+                    color: var(--neutral-color-100);
+                    font-weight: 600;
+                    line-height: 42px;
+                    letter-spacing: -0.01em;
+                }
+
+                &-professions {
+                    padding-bottom: 16px;
+                    color: var(--neutral-color-150);
+                    font-weight: 500;
+                    line-height: 26px;
+                }
+
+                &-descr {
+                    color: var(--neutral-color-100);
+                    font-weight: 400;
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+}

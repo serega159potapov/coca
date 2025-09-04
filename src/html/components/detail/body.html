@@ -1,0 +1,199 @@
+<section class="detail">
+    <div class="container">
+        <div class="detail_info">
+            <h1 class="detail_info-title heading-h1">
+                How we perform long-running tasks using AWS services
+            </h1>
+            <div class="detail_info-author">
+                <address class="detail_info-author-info">
+                    <img
+                        loading="lazy"
+                        src="./assets/image/comment-author-1.jpeg"
+                        class="detail_info-author-info-avatar"
+                        width="56"
+                        height="56"
+                        alt="Renee Wells"
+                    />
+                    <div class="detail_info-author-info-wrapper">
+                        <p
+                            class="detail_info-author-info-wrapper-name text-p-medium"
+                        >
+                            Renee Wells
+                        </p>
+                        <p
+                            class="detail_info-author-info-wrapper-professions text-p-default"
+                        >
+                            Product Designer, Quotient
+                        </p>
+                    </div>
+                </address>
+                <p class="detail_info-author-time text-p-medium">
+                    10 min read November 10, 2023
+                </p>
+            </div>
+            <img
+                loading="lazy"
+                src="./assets/image/detail-blog-img.jpg"
+                class="detail_info-img"
+                width="100%"
+                height="100%"
+                alt="How we perform long-running tasks using AWS services"
+            />
+            <p class="detail_info-text text-p-medium">
+                Depending on the input, this can result in using a lot of
+                processing power and time. The whole process would take
+                approximately 5 seconds to return a result to the client. Keep
+                in mind we’re talking about 1 item, a contact from a contact
+                book. After a while, a new requirement is added. Solution must
+                support companies that manage their contacts organized in files.
+                We agreed to develop a web application that would support upload
+                of dataset files, like .csv. The new web application should
+                support third party integrations. Some of them are the ESP/CRM
+                services, like Mailchimp. User does not need to see the result
+                immediately. System can later notify the user about the result,
+                when the process finishes. This information is the key that we
+                need to leverage on when developing our solution. So here’s how
+                we did it.
+            </p>
+            <div class="detail_info-approach">
+                <h2 class="detail_info-approach-title heading-h3">
+                    Initial approach
+                </h2>
+                <p class="detail_info-approach-text text-p-medium">
+                    Our initial approach went like this: The web application
+                    would read a .csv file line-by-line and submit an array of
+                    entries to the backend REST API. Processing is in real time,
+                    immediately after the user makes a request for the process
+                    to start, he expects a result. Another approach is to apply
+                    vertical scaling to AWS architecture. Meaning we used
+                    larger, more expensive instances that have more RAM and
+                    processing power. This system worked well for smaller
+                    datasets, maybe up to 5k entries, but for larger datasets
+                    multiple problems arose. This solution is prone to failure
+                    due to long request time. Also, because of some 3rd party
+                    services that aren’t optimized for large scale loads or they
+                    don’t have batch endpoints. 3rd party services also tend to
+                    protect their architecture from making a huge bill on their
+                    end. The whole process was done in real-time. The request
+                    can take a lot of time hanging in there while the backend
+                    would do all the work and return the result to the client.
+                    The request was limited to 300 seconds (at time of writing
+                    the article) before AWS would cancel it… Also I need to
+                    mention that the user has to wait a few minutes to see the
+                    results. They can’t use the app during the process, which
+                    makes for a bad user experience.
+                </p>
+            </div>
+            <div class="detail_info-writer">
+                <div class="detail_info-writer-img">
+                    <img
+                        loading="lazy"
+                        src="./assets/image/detail-blog-writer-img.jpg"
+                        class="detail_info-writer-img"
+                        width="200"
+                        height="200"
+                        alt="writer"
+                    />
+                </div>
+                <div class="detail_info-writer-right">
+                    <div class="detail_info-writer-right-socials">
+                        <div class="detail_info-writer-right-socials-item">
+                            <svg
+                                viewBox="0 0 13.6875 25.75"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="13.687500"
+                                height="15.750000"
+                                fill="none"
+                                customFrame="#000000"
+                            >
+                                <path
+                                    id="Path"
+                                    d="M12.7906 14.375L13.5 9.75L9.0625 9.75L9.0625 6.75C9.0625 5.48438 9.68125 4.25 11.6688 4.25L13.6875 4.25L13.6875 0.3125C13.6875 0.3125 11.8563 0 10.1063 0C6.45 0 4.0625 2.21563 4.0625 6.225L4.0625 9.75L0 9.75L0 14.375L4.0625 14.375L4.0625 25.5562C4.87813 25.6844 5.7125 25.75 6.5625 25.75C7.4125 25.75 8.24687 25.6844 9.0625 25.5562L9.0625 14.375L12.7906 14.375Z"
+                                    fill="rgb(29,30,37)"
+                                    fill-rule="nonzero"
+                                />
+                            </svg>
+                        </div>
+                        <div class="detail_info-writer-right-socials-item">
+                            <svg
+                                viewBox="0 0 15.489 12.8"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="15.489014"
+                                height="12.799988"
+                                fill="none"
+                                customFrame="#000000"
+                            >
+                                <path
+                                    id="Path"
+                                    d="M7.5208 3.40485L7.55438 3.95848L6.99479 3.89069C4.95791 3.63082 3.17843 2.74952 1.66756 1.26939L0.928908 0.534979L0.73865 1.07732C0.33575 2.28628 0.593158 3.56303 1.43253 4.42173C1.8802 4.89628 1.77948 4.96407 1.00725 4.6816C0.73865 4.59121 0.503625 4.52342 0.481242 4.55731C0.4029 4.63641 0.6715 5.66459 0.884142 6.07134C1.17513 6.63627 1.76828 7.18991 2.4174 7.51757L2.96579 7.77744L2.31668 7.78874C1.68994 7.78874 1.66756 7.80004 1.73471 8.03731C1.95854 8.77173 2.84268 9.55134 3.82755 9.8903L4.52143 10.1276L3.91708 10.4891C3.02175 11.0089 1.96973 11.3026 0.917717 11.3252C0.414092 11.3365 0 11.3817 0 11.4156C0 11.5286 1.36538 12.1613 2.15999 12.4099C4.54382 13.1443 7.37531 12.828 9.50173 11.5738C11.0126 10.6812 12.5235 8.90731 13.2286 7.18991C13.6091 6.27472 13.9896 4.60251 13.9896 3.8003C13.9896 3.28056 14.0232 3.21277 14.6499 2.59134C15.0192 2.22978 15.3662 1.83433 15.4333 1.72134C15.5452 1.50667 15.534 1.50667 14.9633 1.69874C14.012 2.03771 13.8777 1.99251 14.3477 1.48407C14.6947 1.12251 15.1088 0.467187 15.1088 0.275109C15.1088 0.241213 14.9409 0.297706 14.7506 0.399395C14.5492 0.512382 14.1015 0.681862 13.7658 0.78355L13.1614 0.975628L12.613 0.602771C12.3108 0.399395 11.8856 0.173421 11.6617 0.105629C11.0909 -0.0525531 10.218 -0.0299557 9.70318 0.150823C8.30422 0.659265 7.42008 1.96991 7.5208 3.40485Z"
+                                    fill="rgb(22,26,52)"
+                                    fill-rule="evenodd"
+                                />
+                            </svg>
+                        </div>
+                        <div class="detail_info-writer-right-socials-item">
+                            <svg
+                                viewBox="0 0 16.917 16.1467"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="16.916992"
+                                height="16.146667"
+                                fill="none"
+                                customFrame="#000000"
+                            >
+                                <path
+                                    id="Path"
+                                    d="M4.07918 1.8818C4.05564 0.813602 3.29177 0 2.05135 0C0.81094 0 0 0.813602 0 1.8818C0 2.92787 0.786972 3.7649 2.00429 3.7649L2.02746 3.7649C3.29177 3.7649 4.07918 2.92787 4.07918 1.8818ZM16.9169 9.89983C16.9169 6.55352 15.1281 4.99609 12.7421 4.99609C10.817 4.99609 9.95505 6.05352 9.4738 6.79532L9.4738 5.25221L5.84741 5.25221C5.8952 6.27449 5.84741 16.1467 5.84741 16.1467L9.4738 16.1467L9.4738 10.0623C9.4738 9.73671 9.49733 9.4119 9.5932 9.17878C9.85526 8.52831 10.4519 7.85484 11.4537 7.85484C12.7663 7.85484 13.291 8.85384 13.291 10.3178L13.291 16.1464L16.9168 16.1464L16.9169 9.89983ZM3.84037 5.25195L0.214417 5.25195L0.214417 16.1464L3.84037 16.1464L3.84037 5.25195Z"
+                                    fill="rgb(22,26,52)"
+                                    fill-rule="evenodd"
+                                />
+                            </svg>
+                        </div>
+                        <div class="detail_info-writer-right-socials-item">
+                            <svg
+                                viewBox="0 0 17.0667 17.0668"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="17.066650"
+                                height="17.066833"
+                                fill="none"
+                                customFrame="#000000"
+                            >
+                                <path
+                                    id="Path"
+                                    d="M8.53438 -0.00012207C6.21684 -0.00012207 5.92599 0.0100114 5.01576 0.051434C4.10731 0.0930345 3.48721 0.236858 2.94463 0.447883C2.38338 0.66584 1.90729 0.957399 1.43297 1.43189C0.958299 1.90621 0.66674 2.3823 0.448071 2.94337C0.236513 3.48614 0.0925118 4.10641 0.0516225 5.01451C0.0109109 5.92474 0.000244141 6.21576 0.000244141 8.5333C0.000244141 10.8508 0.0105554 11.1408 0.0518002 12.051C0.0935785 12.9595 0.237402 13.5796 0.448249 14.1222C0.666384 14.6834 0.957943 15.1595 1.43244 15.6338C1.90658 16.1085 2.38267 16.4008 2.94356 16.6187C3.4865 16.8297 4.10678 16.9736 5.01505 17.0152C5.92528 17.0566 6.21595 17.0667 8.53331 17.0667C10.851 17.0667 11.141 17.0566 12.0512 17.0152C12.9597 16.9736 13.5805 16.8297 14.1234 16.6187C14.6845 16.4008 15.1599 16.1085 15.634 15.6338C16.1087 15.1595 16.4002 14.6834 16.6189 14.1223C16.8287 13.5796 16.9727 12.9593 17.0154 12.0512C17.0562 11.141 17.0669 10.8508 17.0669 8.5333C17.0669 6.21576 17.0562 5.92492 17.0154 5.01469C16.9727 4.10623 16.8287 3.48614 16.6189 2.94355C16.4002 2.3823 16.1087 1.90621 15.634 1.43189C15.1593 0.957221 14.6847 0.665663 14.1229 0.447883C13.5789 0.236858 12.9584 0.0930345 12.05 0.051434C11.1397 0.0100114 10.85 -0.00012207 8.53171 -0.00012207L8.53438 -0.00012207ZM7.76882 1.53765C7.99602 1.53729 8.24954 1.53765 8.53434 1.53765C10.8128 1.53765 11.0828 1.54583 11.9826 1.58671C12.8146 1.62476 13.2661 1.76378 13.5669 1.88058C13.9652 2.03525 14.2491 2.22014 14.5476 2.51881C14.8462 2.81748 15.0311 3.10193 15.1861 3.50016C15.3029 3.8006 15.4421 4.25216 15.48 5.08417C15.5209 5.98374 15.5298 6.25396 15.5298 8.53132C15.5298 10.8087 15.5209 11.0789 15.48 11.9785C15.442 12.8105 15.3029 13.262 15.1861 13.5625C15.0315 13.9607 14.8462 14.2443 14.5476 14.5428C14.2489 14.8414 13.9653 15.0263 13.5669 15.181C13.2665 15.2983 12.8146 15.437 11.9826 15.475C11.083 15.5159 10.8128 15.5248 8.53434 15.5248C6.25574 15.5248 5.98569 15.5159 5.08613 15.475C4.25412 15.4366 3.80256 15.2976 3.50158 15.1808C3.10335 15.0261 2.8189 14.8413 2.52023 14.5426C2.22156 14.2439 2.03667 13.9602 1.88165 13.5618C1.76485 13.2613 1.62565 12.8098 1.58778 11.9778C1.54689 11.0782 1.53871 10.808 1.53871 8.52919C1.53871 6.25041 1.54689 5.98161 1.58778 5.08204C1.62582 4.25003 1.76485 3.79847 1.88165 3.49767C2.03632 3.09944 2.22156 2.81499 2.52023 2.51632C2.8189 2.21765 3.10335 2.03276 3.50158 1.87774C3.80238 1.76041 4.25412 1.62174 5.08613 1.58351C5.87334 1.54796 6.1784 1.53729 7.76882 1.53551L7.76882 1.53765ZM13.0894 2.95455C12.5241 2.95455 12.0654 3.41269 12.0654 3.97821C12.0654 4.54355 12.5241 5.00222 13.0894 5.00222C13.6548 5.00222 14.1134 4.54355 14.1134 3.97821C14.1134 3.41287 13.6548 2.95455 13.0894 2.95455ZM8.53439 4.15101C6.11428 4.15101 4.15212 6.11316 4.15212 8.53328C4.15212 10.9534 6.11428 12.9147 8.53439 12.9147C10.9545 12.9147 12.9159 10.9534 12.9159 8.53328C12.9159 6.11316 10.9545 4.15101 8.53439 4.15101ZM8.53436 5.6888C10.1052 5.6888 11.3788 6.96224 11.3788 8.53328C11.3788 10.1041 10.1052 11.3778 8.53436 11.3778C6.96332 11.3778 5.68988 10.1041 5.68988 8.53328C5.68988 6.96224 6.96332 5.6888 8.53436 5.6888Z"
+                                    fill="rgb(22,26,52)"
+                                    fill-rule="evenodd"
+                                />
+                            </svg>
+                        </div>
+                        <p
+                            class="detail_info-writer-right-socials-share text-p-default"
+                        >
+                            Share this article
+                        </p>
+                    </div>
+                    <p class="detail_info-writer-right-Written text-p-default">
+                        Written by
+                    </p>
+                    <h3 class="detail_info-writer-right-name heading-h5">
+                        Renee Wells
+                    </h3>
+                    <p
+                        class="detail_info-writer-right-professions text-p-default"
+                    >
+                        Product Designer, Quotient
+                    </p>
+                    <p class="detail_info-writer-right-descr text-p-medium">
+                        Skilled in React Native, iOS and backend, Toni has a
+                        demonstrated knowledge of the information technology and
+                        services industry, with plenty of hands-on experience to
+                        back it up.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
